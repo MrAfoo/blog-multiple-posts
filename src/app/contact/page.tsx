@@ -1,4 +1,3 @@
-"use client"
 import { useState } from 'react';
 
 const Contact = () => {
@@ -8,7 +7,6 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you can handle the form submission (e.g., send to an API or email)
     console.log('Form submitted:', { name, email, message });
   };
 
