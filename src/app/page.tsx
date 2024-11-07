@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import blogPosts from '@/app/data'; // Ensure the correct path
 
+
 const HomePage = () => {
   return (
     <div className="container mx-auto p-4">

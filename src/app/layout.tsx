@@ -27,15 +27,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <footer className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-400 text-white p-4 mt-auto">
         <div className="container mx-auto text-center space-y-6">
             <div className="space-x-6">
-              <Link href="/about" className="hover:underline">About Us
-                
-              </Link>
-              <Link href="/contact" className="hover:underline">Contact Us
-               
-              </Link>
-              <Link href="/privacy" className="hover:underline">Privacy Policy
-                
-              </Link>
+            <Link href="/" className="hover:underline">Home </Link>
+              <Link href="/about" className="hover:underline">About Us </Link>
+              <Link href="/contact" className="hover:underline">Contact Us</Link>
+              <Link href="/privacy" className="hover:underline">Privacy Policy</Link>
             </div>
             <div className="mt-4 flex justify-center items-center space-x-6">
               <a href="https://github.com/MrAfoo" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
