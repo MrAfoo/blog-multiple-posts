@@ -1,7 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useState } from 'react';
 import blogPosts from '@/app/data'; // Adjust the path as needed
-import '../../styles/globals.css'
+import { useRouter } from 'next/router'; // Import useRouter for navigation
+import '../../styles/globals.css';
 
 interface Post {
   title: string;
@@ -32,6 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const BlogPost: React.FC<PostProps> = ({ post }) => {
   const [comments, setComments] = useState<string[]>([]);
   const [comment, setComment] = useState('');
+  const router = useRouter(); // Initialize the router for navigation
 
   const handleAddComment = () => {
     if (comment.trim()) {
@@ -45,13 +47,28 @@ const BlogPost: React.FC<PostProps> = ({ post }) => {
     setComments(updatedComments);
   };
 
+  const handleBack = () => {
+    router.push('/'); // Navigate to the homepage
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-300 via-purple-300 to-pink-300 flex flex-col justify-center items-center py-6">
-      <div className="container mx-auto p-6 bg rounded-lg shadow-">
-        <article className="p-6 rounded-lg shadow- mb-8">
+      <div className="container mx-auto p-6 bg-white rounded-lg shadow-md">
+        <article className="p-6 rounded-lg shadow-md mb-8">
           <h1 className="text-4xl font-bold mb-4 text-center text-blue-700">{post.title}</h1>
           <p className="text-lg text-gray-800 leading-relaxed">{post.content}</p>
         </article>
+
+        {/* Back Button */}
+        <div className="flex justify-start mb-4">
+          <button
+            onClick={handleBack}
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          >
+            Back to Home
+          </button>
+        </div>
+
         <section className="bg-white p-4 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Comments</h2>
           <ul className="space-y-2 mb-4">
